@@ -1,0 +1,52 @@
+{
+  "name": "obi-web",
+  "version": "0.0.1",
+  "description": "Web client to interact with Obi",
+  "main": "server/server.coffee",
+  "engines": {
+    "node": "0.12"
+  },
+  "scripts": {
+    "production": "NODE_ENV=production coffee --nodejs --harmony server/server.coffee",
+    "start": "node --harmony ./node_modules/.bin/gulp start",
+    "test": "node --harmony ./node_modules/.bin/gulp test",
+    "watch": "node --harmony ./node_modules/.bin/gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/burtonjc/obi-web.git"
+  },
+  "author": "Jacob Burton <burtonjc35@gmail.com> (https://github.com/burtonjc)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/burtonjc/obi-web/issues"
+  },
+  "homepage": "https://github.com/burtonjc/obi-web",
+  "dependencies": {
+    "bunyan": "^1.3.5",
+    "bunyan-logentries": "^1.0.0",
+    "coffee-script": "^1.9.2",
+    "colors": "^1.0.3",
+    "jade": "^1.9.2",
+    "koa": "^0.19.1",
+    "koa-bodyparser": "^1.5.0",
+    "koa-bunyan-logger": "^1.2.0",
+    "koa-render": "^0.2.1",
+    "koa-router": "^4.3.2",
+    "koa-static": "^1.4.9"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-clean": "^0.3.1",
+    "gulp-coffee": "^2.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-jade": "^1.0.0",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.1.0",
+    "gulp-mocha": "^2.0.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "^3.0.4",
+    "nodemon": "^1.3.7",
+    "string": "^3.1.1"
+  }
+}

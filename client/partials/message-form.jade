@@ -1,0 +1,15 @@
+.message-form(ng-controller="controllers.MessageForm")
+  form
+    .form-group
+      input.form-control(type="text" ng-model="message" placeholder="Type a message...")
+    button.btn.btn-default(ng-click="onSubmit(message)") Send
+
+  .message-response(ng-show="response" ng-repeat="(plugin, response) in response")
+    table.table.table-condensed
+      thead
+        tr
+          th Plugin
+          th Action
+      tr
+        td {{plugin}}
+        td {{response}}
