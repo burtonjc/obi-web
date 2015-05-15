@@ -31,9 +31,12 @@
     "koa": "^0.19.1",
     "koa-bodyparser": "^1.5.0",
     "koa-bunyan-logger": "^1.2.0",
+    "koa-generic-session": "^1.8.0",
+    "koa-passport": "^1.1.6",
     "koa-render": "^0.2.1",
     "koa-router": "^4.3.2",
-    "koa-static": "^1.4.9"
+    "koa-static": "^1.4.9",
+    "passport-github": "^0.1.5"
   },
   "devDependencies": {
     "gulp": "^3.8.11",

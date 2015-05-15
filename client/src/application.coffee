@@ -1,1 +1,1 @@
-angular.module 'application', ['ngResource']
+angular.module 'application', ['ngResource', 'ui.router']

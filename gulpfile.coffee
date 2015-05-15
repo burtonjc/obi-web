@@ -1,11 +1,15 @@
 gulp = require 'gulp'
 gutil = require 'gulp-util'
 
-gulp.task 'default', ['less', 'jade', 'coffee']
+gulp.task 'default', ['less', 'jade', 'coffee', 'copy']
 
 gulp.task 'clean', ->
   gulp.src 'client/dist', read: false
     .pipe require('gulp-clean')()
+
+gulp.task 'copy', ->
+  gulp.src 'client/vendor/**/*'
+    .pipe gulp.dest 'client/dist/vendor'
 
 gulp.task 'coffee', ->
   sourcemaps = require 'gulp-sourcemaps'
@@ -20,10 +24,15 @@ gulp.task 'test', ->
     .pipe require('gulp-mocha') reporter: 'dot'
 
 gulp.task 'less', ->
-  gulp.src 'client/styles/**/*.less'
+  gulp.src 'client/styles/application/**/*.less'
     .pipe require('gulp-less') compress: true
     .pipe require('gulp-minify-css') keepBreaks: false
-    .pipe require('gulp-concat') 'main.css', newLine: ' '
+    .pipe require('gulp-concat') 'application.css', newLine: ' '
+    .pipe gulp.dest 'client/dist/css'
+  gulp.src 'client/styles/marketing/**/*.less'
+    .pipe require('gulp-less') compress: true
+    .pipe require('gulp-minify-css') keepBreaks: false
+    .pipe require('gulp-concat') 'marketing.css', newLine: ' '
     .pipe gulp.dest 'client/dist/css'
 
 gulp.task 'jade', ->
@@ -35,6 +44,7 @@ gulp.task 'watch', ['default'], ->
   gulp.watch ['client/styles/**/*.less'], ['less']
   gulp.watch ['client/partials/**/*.jade'], ['jade']
   gulp.watch ['client/src/**/*.coffee'], ['coffee']
+  gulp.watch ['client/vendor/**/*'], ['copy']
 
 gulp.task 'watch:test', ['test'], ->
   gulp.watch ['src/**/*.coffee', 'spec/**/*.coffee'], ['test']
