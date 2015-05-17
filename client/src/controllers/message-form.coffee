@@ -5,8 +5,5 @@ angular.module('application').controller 'controllers.MessageForm', [
   ($scope, Message) ->
     $scope.onSubmit = (message) ->
       return unless message
-      Message.save {message}
-      .$promise.then (response) ->
-        console.log response
-        $scope.response = response
+      $scope.responses = Message.save {message}
 ]
